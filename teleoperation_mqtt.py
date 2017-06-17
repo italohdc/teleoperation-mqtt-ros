@@ -333,7 +333,7 @@ class TeleoperationOculus:
         diff_left = self.euclidian_distance(pre_pose.pose.position, pose_left.position)
         diff_right = self.euclidian_distance(pre_pose.pose.position, pose_right.position)
 
-        print diff_left, diff_right, button.left_index_trigger, button.right_index_trigger
+        #print diff_left, diff_right, button.left_index_trigger, button.right_index_trigger
 
         if(diff_left < 0.2): 
             if(button.left_index_trigger > 0.2):
@@ -517,12 +517,12 @@ class TeleoperationOculus:
         transformation_camera2.position.z = 0
         transformation_camera2.orientation = transformation_camera1.orientation
 
-        self.publish_tf_transformation(pose_left, "/left", ros_fixed_frame)
-        self.publish_tf_transformation(pose_right, "/right", ros_fixed_frame)
-        self.publish_tf_transformation(pose_head, "/head", ros_fixed_frame)
+        self.publish_tf_transformation(pose_left, "left", ros_fixed_frame)
+        self.publish_tf_transformation(pose_right, "right", ros_fixed_frame)
+        self.publish_tf_transformation(pose_head, "head", ros_fixed_frame)
 
-        self.publish_tf_transformation(transformation_camera1, "/camera1", "/head")
-        self.publish_tf_transformation(transformation_camera2, "/camera2", "/head")
+        self.publish_tf_transformation(transformation_camera1, "camera1", "head")
+        self.publish_tf_transformation(transformation_camera2, "camera2", "head")
 
     
 
