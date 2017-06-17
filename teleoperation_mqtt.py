@@ -537,6 +537,7 @@ if __name__ == '__main__':
     teleoperation = TeleoperationOculus()
 
     thread = Thread(target = threaded_spin, args=[])
+    thread.daemon = True
     thread.start()
 
     while(True):
